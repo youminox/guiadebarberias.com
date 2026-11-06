@@ -74,15 +74,17 @@ export default async function CityRankingPage({ params }: Props) {
       "@type": "ListItem",
       position: idx + 1,
       item: {
-        "@type": "BarberShop",
+        "@type": "LocalBusiness",
         name: b.name,
         url: `${SITE_URL}${getBarberiaUrl(b)}`,
         image: `${SITE_URL}${b.imageUrl}`,
+        telephone: b.phone,
         priceRange: b.priceRange,
         address: {
           "@type": "PostalAddress",
           streetAddress: b.address,
           addressLocality: `${b.district}, ${b.city}`,
+          addressRegion: b.city,
           addressCountry: "PE",
         },
         aggregateRating: {

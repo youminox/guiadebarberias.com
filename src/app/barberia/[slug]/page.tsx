@@ -109,7 +109,7 @@ export default async function BarberiaDetailPage({ params }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "BarberShop",
+        "@type": "LocalBusiness",
         "@id": `${canonicalUrl}#barbershop`,
         name: barberia.name,
         description: barberia.excerpt,
