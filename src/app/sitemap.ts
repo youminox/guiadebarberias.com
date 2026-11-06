@@ -5,11 +5,13 @@ import {
   getBarberiaUrl,
   SITE_URL,
 } from "@/lib/barberias";
+import { getAllBlogArticles } from "@/data/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const barberias = getAllBarberias();
   const cities = getAllCities();
+  const blogArticles = getAllBlogArticles();
 
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -17,6 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "daily",
       priority: 1.0,
+    },
+    {
+      url: `${SITE_URL}/blog/`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${SITE_URL}/nosotros/`,
@@ -57,6 +65,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: c.slug === "lima" ? 0.95 : 0.85,
   }));
 
+  const blogPages: MetadataRoute.Sitemap = blogArticles.map((a) => ({
+    url: `${SITE_URL}/blog/${a.slug}/`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.88,
+  }));
+
   const barberiaPages: MetadataRoute.Sitemap = barberias.map((b) => ({
     url: `${SITE_URL}${getBarberiaUrl(b)}`,
     lastModified: now,
@@ -64,5 +79,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: b.isNationalTop ? 0.9 : 0.8,
   }));
 
-  return [...staticPages, ...cityPages, ...barberiaPages];
+  return [...staticPages, ...cityPages, ...blogPages, ...barberiaPages];
 }

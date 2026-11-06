@@ -140,6 +140,14 @@ export default function Footer() {
                   🧔 Asesor Interactivo de Corte y Barba
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/blog/"
+                  className="hover:text-emerald-400 transition-colors font-semibold text-white"
+                >
+                  📰 Blog de Barbería, Visagismo y Minoxidil
+                </Link>
+              </li>
               <li className="pt-2 border-t border-slate-800">
                 <Link
                   href="/nosotros/"

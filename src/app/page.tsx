@@ -18,6 +18,7 @@ import {
   SITE_DESCRIPTION,
   YOU_MINOX_URL,
 } from "@/lib/barberias";
+import { getAllBlogArticles } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} — Ranking de las +110 Mejores Barberías del Perú por Ciudad (Lima, Arequipa, Trujillo, Cusco) | by You Minox`,
@@ -49,6 +50,7 @@ export default function HomePage() {
   const topNational = getTopNationalBarberias(20);
   const cities = getAllCities();
   const limaDistricts = getLimaDistricts();
+  const blogArticles = getAllBlogArticles();
 
   const itemListSchema = {
     "@context": "https://schema.org",
@@ -444,6 +446,67 @@ export default function HomePage() {
                   <span className="shrink-0 rounded-md bg-amber-50 border border-amber-200 px-1.5 py-0.5 text-[11px] font-extrabold text-amber-800">
                     ★ {b.rating.toFixed(1)}
                   </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ================= BLOG DE BARBERÍA, VISAGISMO Y CUIDADO DE BARBA ================= */}
+        <section className="py-16 px-4 bg-white border-t border-slate-200">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+              <div>
+                <span className="inline-block rounded-full bg-emerald-100 px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider text-emerald-900 mb-2">
+                  📰 Guías Editoriales de Barbería & Minoxidil
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Consejos de Barberos Profesionales y Crecimiento de Barba
+                </h2>
+                <p className="text-sm text-slate-600 mt-1 max-w-2xl">
+                  Descubre cuándo perfilar tu barba durante tu tratamiento con Minoxidil, qué corte pedir según tu rostro y cómo mantener tu estilo entre citas:
+                </p>
+              </div>
+              <Link
+                href="/blog/"
+                className="shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-extrabold text-white hover:bg-primary transition"
+              >
+                Ver Todos los Artículos →
+              </Link>
+            </div>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {blogArticles.map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/blog/${post.slug}/`}
+                  className="group rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden transition hover:bg-white hover:border-primary hover:shadow-lg flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="h-44 overflow-hidden relative bg-slate-200">
+                      <img
+                        src={post.imageUrl}
+                        alt={post.imageAlt}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-3 left-3 rounded-full bg-slate-950/85 px-3 py-1 text-[11px] font-extrabold text-emerald-400">
+                        {post.category}
+                      </span>
+                    </div>
+                    <div className="p-5">
+                      <h3 className="text-base font-extrabold text-slate-900 group-hover:text-primary transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                        {post.excerpt}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="px-5 pb-4 pt-2 flex items-center justify-between text-xs font-bold text-primary">
+                    <span>⏱️ {post.readTime}</span>
+                    <span>Leer guía →</span>
+                  </div>
                 </Link>
               ))}
             </div>

@@ -19,6 +19,7 @@ import {
   YOU_MINOX_URL,
   COMPANY_NAME,
 } from "@/lib/barberias";
+import { getAllBlogArticles } from "@/data/blog-posts";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -855,6 +856,29 @@ export default async function BarberiaDetailPage({ params }: Props) {
                         </div>
                         <h4 className="text-sm font-bold text-gray-800 group-hover:text-primary transition-colors line-clamp-2">
                           {tb.name}
+                        </h4>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Blog Guides Box in Sidebar */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-6">
+                  <h3 className="mb-4 text-base font-bold text-gray-900">
+                    📰 Guías de Barba & Barbería
+                  </h3>
+                  <div className="space-y-3">
+                    {getAllBlogArticles().slice(0, 4).map((post) => (
+                      <Link
+                        key={post.id}
+                        href={`/blog/${post.slug}/`}
+                        className="block border-b border-gray-100 pb-3 last:border-b-0 last:pb-0 group"
+                      >
+                        <span className="text-[11px] font-bold uppercase text-primary">
+                          {post.category}
+                        </span>
+                        <h4 className="text-xs font-bold text-gray-800 group-hover:text-primary transition-colors line-clamp-2 mt-0.5">
+                          {post.title}
                         </h4>
                       </Link>
                     ))}
