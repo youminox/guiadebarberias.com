@@ -722,8 +722,17 @@ export default async function BarberiaDetailPage({ params }: Props) {
                       href="/nosotros/"
                       className="text-base font-extrabold text-gray-900 hover:text-primary"
                     >
-                      Equipo Editorial GuíaDeBarberías.com & Charlie Lingán
-                    </Link>
+                      Equipo Editorial GuíaDeBarberías.com
+                    </Link>{" "}
+                    <span className="text-gray-400">&amp;</span>{" "}
+                    <a
+                      href="https://charlielingan.com/es"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-base font-extrabold text-primary hover:underline"
+                    >
+                      Charlie Lingán (charlielingan.com) ↗
+                    </a>
                     <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[11px] font-bold text-primary-dark">
                       Impulsado por You Minox
                     </span>

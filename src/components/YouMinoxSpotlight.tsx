@@ -289,10 +289,25 @@ export default function YouMinoxSpotlight({
                     Mensaje del Creador
                   </span>
                   <h3 className="text-xl font-extrabold text-white">
-                    Charlie Lingán
+                    <a
+                      href="https://charlielingan.com/es"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-300 transition-colors underline decoration-emerald-400/50"
+                    >
+                      Charlie Lingán ↗
+                    </a>
                   </h3>
                   <p className="text-xs text-slate-400">
-                    Fundador de You Minox (youminox.com)
+                    Fundador de You Minox (youminox.com) •{" "}
+                    <a
+                      href="https://charlielingan.com/es/estrategias/guiadebarberias-como-digitalizamos-las-mejores-barberias-del-peru"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 hover:underline"
+                    >
+                      Leer historia del proyecto
+                    </a>
                   </p>
                 </div>
               </div>

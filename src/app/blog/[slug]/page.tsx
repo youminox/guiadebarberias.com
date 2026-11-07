@@ -108,7 +108,12 @@ export default async function BlogArticlePage({ params }: Props) {
           "@type": "Person",
           name: article.author,
           jobTitle: article.authorRole,
-          url: YOU_MINOX_URL,
+          url: "https://charlielingan.com/es",
+          sameAs: [
+            "https://charlielingan.com/es",
+            "https://charlielingan.com/es/emprendedor/como-cree-you-minox-minoxidil-en-crema-numero-1-del-peru",
+            YOU_MINOX_URL,
+          ],
         },
         publisher: {
           "@type": "Organization",
@@ -296,10 +301,18 @@ export default async function BlogArticlePage({ params }: Props) {
                     Autor & Revisor Especialista
                   </span>
                   <h3 className="text-lg font-extrabold text-white mt-0.5">
-                    {article.author} — {article.authorRole}
+                    <a
+                      href="https://charlielingan.com/es"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-300 underline decoration-emerald-400/50"
+                    >
+                      {article.author}
+                    </a>{" "}
+                    — {article.authorRole}
                   </h3>
                   <p className="mt-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    Creador de{" "}
+                    Creador y fundador de{" "}
                     <a
                       href={YOU_MINOX_URL}
                       target="_blank"
@@ -308,7 +321,16 @@ export default async function BlogArticlePage({ params }: Props) {
                     >
                       You Minox (youminox.com)
                     </a>{" "}
-                    y director de <strong>GuíaDeBarberías.com</strong>. Especialista en regeneración folicular, visagismo de barba y protocolos dermatológicos con Notificación Sanitaria DIGEMID en el Perú.
+                    y director de <strong>GuíaDeBarberías.com</strong>. Conoce la historia completa de cómo fundó la marca en su portal oficial{" "}
+                    <a
+                      href="https://charlielingan.com/es/emprendedor/como-cree-you-minox-minoxidil-en-crema-numero-1-del-peru"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-amber-300 font-bold underline"
+                    >
+                      CharlieLingán.com ↗
+                    </a>
+                    .
                   </p>
                 </div>
               </div>

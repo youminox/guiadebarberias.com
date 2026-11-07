@@ -56,7 +56,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         Una de las dudas más frecuentes entre los hombres que inician un tratamiento para poblar su barba es saber <strong>cuándo pueden sentarse por primera vez en el sillón de una barbería</strong> sin arruinar el progreso ganado. Cuando empiezan a aparecer los primeros vellos finos en las mejillas y el mentón, el temor a que la máquina o la navaja del barbero "arranquen" los folículos nuevos hace que muchos descuiden su imagen durante meses.
       </p>
       <p>
-        En esta guía clínica y de barbería elaborada por el equipo de <strong>GuíaDeBarberías.com</strong>, te explicamos exactamente cómo funciona el ciclo del folículo facial, cuándo acudir a las <a href="/ciudad/lima/"><strong>mejores barberías de Lima</strong></a> o de tu ciudad, y cómo coordinar tu rutina diaria con <a href="${YOU_MINOX_URL}" target="_blank" rel="noopener noreferrer"><strong>You Minox al 5% en Crema-Gel</strong></a>.
+        En esta guía clínica y de barbería elaborada por el equipo de <strong>GuíaDeBarberías.com</strong> y su fundador <a href="https://charlielingan.com/es" target="_blank" rel="noopener noreferrer"><strong>Charlie Lingán (charlielingan.com)</strong></a>, te explicamos exactamente cómo funciona el ciclo del folículo facial, cuándo acudir a las <a href="/ciudad/lima/"><strong>mejores barberías de Lima</strong></a> o de tu ciudad, y cómo coordinar tu rutina diaria con <a href="${YOU_MINOX_URL}" target="_blank" rel="noopener noreferrer"><strong>You Minox al 5% en Crema-Gel</strong></a>.
       </p>
 
       <h2 id="mito-afeitado-minoxidil">1. ¿Cortar o perfilar la barba detiene el efecto del Minoxidil?</h2>
@@ -420,7 +420,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         Sales de una de las mejores barberías de <a href="/ciudad/lima/">Lima</a>, <a href="/ciudad/tacna/">Tacna</a> o <a href="/ciudad/cajamarca/">Cajamarca</a> con un degradado impecable y las líneas de la barba perfectamente definidas. Sin embargo, si en casa descuidas la piel o aplicas productos alcohólicos agresivos, en menos de una semana aparecen la resequedad, los vellos rebeldes y la pérdida de forma.
       </p>
       <p>
-        En esta guía práctica de <strong>GuíaDeBarberías.com</strong> hemos resumido la <strong>rutina diaria de 5 minutos</strong> que recomiendan los barberos profesionales para mantener tu imagen al 100% entre cada corte.
+        En esta guía práctica de <strong>GuíaDeBarberías.com</strong> —iniciativa creada por <a href="https://charlielingan.com/es/estrategias/guiadebarberias-como-digitalizamos-las-mejores-barberias-del-peru" target="_blank" rel="noopener noreferrer"><strong>Charlie Lingán, fundador de You Minox</strong></a>— hemos resumido la <strong>rutina diaria de 5 minutos</strong> que recomiendan los barberos profesionales para mantener tu imagen al 100% entre cada corte.
       </p>
 
       <h2 id="por-que-se-pierde-diseno">1. Por qué el diseño de barba pierde definición a los pocos días y cómo evitarlo</h2>
