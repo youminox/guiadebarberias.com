@@ -18,7 +18,7 @@ import {
   SITE_DESCRIPTION,
   YOU_MINOX_URL,
 } from "@/lib/barberias";
-import { getAllBlogArticles } from "@/data/blog-posts";
+import { getAllBlogArticles, BLOG_CATEGORIES } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} — Ranking de las +110 Mejores Barberías del Perú por Ciudad (Lima, Arequipa, Trujillo, Cusco) | by You Minox`,
@@ -454,31 +454,44 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ================= BLOG DE BARBERÍA, VISAGISMO Y CUIDADO DE BARBA ================= */}
+        {/* ================= BLOG DE BARBERÍA, VISAGISMO Y CUIDADO DE BARBA (500 GUÍAS) ================= */}
         <section className="py-16 px-4 bg-white border-t border-slate-200">
           <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
               <div>
                 <span className="inline-block rounded-full bg-emerald-100 px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider text-emerald-900 mb-2">
-                  📰 Guías Editoriales de Barbería & Minoxidil
+                  📰 Enciclopedia de {blogArticles.length} Guías Editoriales de Barbería & Minoxidil
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                   Consejos de Barberos Profesionales y Crecimiento de Barba
                 </h2>
                 <p className="text-sm text-slate-600 mt-1 max-w-2xl">
-                  Descubre cuándo perfilar tu barba durante tu tratamiento con Minoxidil, qué corte pedir según tu rostro y cómo mantener tu estilo entre citas:
+                  Explora nuestras {blogArticles.length} guías especializadas en 12 categorías: distritos de Lima, ciudades del Perú, países del mundo, cuándo perfilar tu barba durante tu tratamiento con You Minox y qué corte pedir según tu rostro:
                 </p>
               </div>
               <Link
                 href="/blog/"
                 className="shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-extrabold text-white hover:bg-primary transition"
               >
-                Ver Todos los Artículos →
+                Ver las {blogArticles.length} Guías Completas →
               </Link>
             </div>
 
+            {/* 12 Category Silos Quick Access */}
+            <div className="mb-8 flex flex-wrap gap-2">
+              {Object.entries(BLOG_CATEGORIES).map(([slug, label]) => (
+                <Link
+                  key={slug}
+                  href={`/blog/?categoria=${slug}`}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1.5 text-xs font-bold text-slate-700 hover:border-primary hover:bg-emerald-50 hover:text-primary transition"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {blogArticles.map((post) => (
+              {blogArticles.slice(0, 9).map((post) => (
                 <Link
                   key={post.id}
                   href={`/blog/${post.slug}/`}
