@@ -15,14 +15,14 @@ import {
 } from "@/lib/barberias";
 
 export const metadata: Metadata = {
-  title: `500 Guías de Barbería, Diseño de Barba y Minoxidil | ${SITE_NAME}`,
+  title: `1,500 Guías de Barbería, Diseño de Barba y Minoxidil | ${SITE_NAME}`,
   description:
-    "Explora las 500 guías especializadas de visagismo masculino, barberías por distrito en Lima y ciudades del Perú, cuándo perfilar tu barba usando You Minox en Crema-Gel y cuidado post-barbería.",
+    "Explora las 1,500 guías especializadas de visagismo masculino, barberías por urbanización y distrito en Lima y ciudades del Perú, cuándo perfilar tu barba usando You Minox en Crema-Gel y cuidado post-barbería.",
   alternates: {
     canonical: `${SITE_URL}/blog/`,
   },
   openGraph: {
-    title: `500 Guías Oficiales de Barbería, Visagismo y Cuidado de Barba | ${SITE_NAME}`,
+    title: `1,500 Guías Oficiales de Barbería, Visagismo y Cuidado de Barba | ${SITE_NAME}`,
     description:
       "Consejos de maestros barberos del Perú y especialistas en crecimiento folicular con You Minox en Crema-Gel.",
     url: `${SITE_URL}/blog/`,

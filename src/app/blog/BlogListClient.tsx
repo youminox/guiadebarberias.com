@@ -59,7 +59,7 @@ function BlogListInner({ articles }: { articles: BlogArticleSummary[] }) {
                 setSearchQuery(e.target.value);
                 setVisibleCount(PAGE_SIZE);
               }}
-              placeholder="Buscar entre las 500 guías (ej. Miraflores, Arequipa, Fade, Navaja, Barba, Cejas, You Minox)..."
+              placeholder="Buscar entre las 1,500 guías (ej. Chacarilla, Miraflores, Arequipa, Miami, Fade, Navaja, Barba, Cejas, You Minox)..."
               className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 pl-11 text-sm text-slate-900 shadow-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             />
             <svg

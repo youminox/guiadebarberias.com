@@ -6,6 +6,7 @@ import {
 } from "@/lib/barberias";
 import { PILLAR_ARTICLES } from "./blog-pillars";
 import { EXTRA_GB_SEEDS, type GBArticleSeed } from "./blog-seeds";
+import { PHASE2_GB_SEEDS } from "./blog-seeds-phase2";
 
 export type CategorySlug =
   | "distritos-de-lima"
@@ -485,6 +486,7 @@ const ENRICHED_PILLARS: BlogArticle[] = PILLAR_ARTICLES.map((p, idx) => {
 export const BLOG_ARTICLES: BlogArticle[] = [
   ...ENRICHED_PILLARS,
   ...EXTRA_GB_SEEDS.map(buildSeedArticle),
+  ...PHASE2_GB_SEEDS.map(buildSeedArticle),
 ];
 
 export const BLOG_SUMMARIES: BlogArticleSummary[] = BLOG_ARTICLES.map((a) => ({
