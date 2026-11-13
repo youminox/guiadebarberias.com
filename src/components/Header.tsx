@@ -6,6 +6,7 @@ import { YOU_MINOX_URL } from "@/lib/barberias";
 
 const MAIN_NAV = [
   { label: "Top Perú", href: "/#ranking-peru" },
+  { label: "📍 Cerca de mí", href: "/barberias-cerca-de-mi/" },
   { label: "Lima", href: "/ciudad/lima/" },
   { label: "Arequipa", href: "/ciudad/arequipa/" },
   { label: "Trujillo", href: "/ciudad/trujillo/" },
@@ -149,6 +150,13 @@ export default function Header() {
             </Link>
           ))}
           <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
+            <Link
+              href="/barberias-cerca-de-mi/"
+              onClick={() => setMobileOpen(false)}
+              className="block rounded-xl bg-emerald-600 px-4 py-2.5 text-center text-xs font-extrabold text-white"
+            >
+              📍 Ver Barberías Cerca de Mí (GPS)
+            </Link>
             <Link
               href="/nosotros/"
               onClick={() => setMobileOpen(false)}

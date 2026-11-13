@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${SITE_URL}/barberias-cerca-de-mi/`,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.95,
+    },
+    {
       url: `${SITE_URL}/blog/`,
       lastModified: now,
       changeFrequency: "weekly",

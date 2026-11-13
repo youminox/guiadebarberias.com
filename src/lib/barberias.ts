@@ -1,5 +1,6 @@
 import { RAW_BARBERIAS, type RawBarberShop } from "@/data/barberias-raw";
 import { EXTRA_BARBERIAS } from "@/data/barberias-extra";
+import { BARBERIA_COORDS } from "@/data/barberias-coords";
 
 export const SITE_NAME = "GuíaDeBarberías.com";
 export const SITE_URL = "https://guiadebarberias.com";
@@ -26,6 +27,8 @@ export interface BarberReview {
 }
 
 export interface BarberShop extends RawBarberShop {
+  lat: number;
+  lng: number;
   imageUrl: string;
   secondaryImageUrl: string;
   allReviews: BarberReview[];
@@ -101,8 +104,12 @@ function enrichBarberShop(raw: RawBarberShop): BarberShop {
     },
   ];
 
+  const coords = BARBERIA_COORDS[raw.id] ?? { lat: -12.122248, lng: -77.030859 };
+
   return {
     ...raw,
+    lat: coords.lat,
+    lng: coords.lng,
     imageUrl: formatImagePath(raw.imageIndex),
     secondaryImageUrl: formatImagePath(raw.secondaryImageIndex),
     allReviews,

@@ -134,6 +134,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/barberias-cerca-de-mi/"
+                  className="hover:text-emerald-400 transition-colors font-semibold text-emerald-300"
+                >
+                  📍 Barberías Recomendadas Cerca de Mí
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/#asesor-estilo"
                   className="hover:text-emerald-400 transition-colors font-semibold text-amber-300"
                 >

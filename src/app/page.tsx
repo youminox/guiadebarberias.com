@@ -7,6 +7,7 @@ import BeardStyleAdvisor from "@/components/BeardStyleAdvisor";
 import YouMinoxSpotlight from "@/components/YouMinoxSpotlight";
 import GoogleStars from "@/components/GoogleStars";
 import AdBanner from "@/components/AdBanner";
+import NearMeTriggerButton from "@/components/NearMeTriggerButton";
 import {
   getAllBarberias,
   getTopNationalBarberias,
@@ -152,6 +153,17 @@ export default function HomePage() {
                 </strong>
                 , direcciones exactas, precios de corte y rituales de barba.
               </p>
+
+              {/* Quick Near-Me CTA right in Hero */}
+              <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <NearMeTriggerButton label="📍 Ver Barberías Cerca de Mí Ahora" />
+                <Link
+                  href="/barberias-cerca-de-mi/"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-5 py-3.5 text-sm font-bold text-white backdrop-blur-xs transition hover:bg-white/20"
+                >
+                  <span>🗺️ Guía Cerca de Mí por Distrito →</span>
+                </Link>
+              </div>
 
               {/* Key Trust Metrics */}
               <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto">
