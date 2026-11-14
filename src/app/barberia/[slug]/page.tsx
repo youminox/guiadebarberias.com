@@ -39,14 +39,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: `Barbería no encontrada | ${SITE_NAME}` };
   }
 
-  const title = `${barberia.name} (${barberia.district}, ${barberia.city}): Reseñas Google (${barberia.rating.toFixed(
-    1
-  )} ★), Precios y Dirección`;
+  const nameHasDistrict = barberia.name
+    .toLowerCase()
+    .includes(barberia.district.toLowerCase());
+  const ratingLabel = `${barberia.rating.toFixed(1)} ★`;
+  const fullTitle = `${barberia.name}${nameHasDistrict ? "" : `, ${barberia.district}`}: Reseñas (${ratingLabel}) y Precios`;
+  // Long branch names: fall back to a compact title so Google doesn't truncate it
+  const title = fullTitle.length <= 65 ? fullTitle : `${barberia.name} (${ratingLabel})`;
   const canonicalUrl = `${SITE_URL}${getBarberiaUrl(barberia)}`;
   const absoluteImageUrl = `${SITE_URL}${barberia.imageUrl}`;
 
   return {
-    title,
+    // Layout template appends "| SITE_NAME"; drop it if the full title would exceed ~65 chars
+    title: title.length + ` | ${SITE_NAME}`.length <= 65 ? title : { absolute: title },
     description: barberia.excerpt,
     alternates: {
       canonical: canonicalUrl,

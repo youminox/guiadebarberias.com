@@ -95,6 +95,12 @@ export default function RootLayout({
         taxID: COMPANY_RUC,
         email: COMPANY_EMAIL,
         url: `${SITE_URL}/`,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/images/brand/logo-guiadebarberias.png`,
+          width: 512,
+          height: 512,
+        },
         sameAs: [YOU_MINOX_URL],
         address: {
           "@type": "PostalAddress",

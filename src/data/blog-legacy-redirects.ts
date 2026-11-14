@@ -1539,10 +1539,39 @@ const LEGACY_REDIRECT_GROUPS: Record<string, string[]> = {
   ],
 };
 
+/**
+ * Legacy slugs originally grouped under the generic "/blog/" hub. Redirecting many URLs to an
+ * index page is treated by Google as a soft 404, so: product/minoxidil topics go to the closest
+ * relevant guide, and geo templates (countries / foreign cities) with no equivalent return 404.
+ */
+function resolveGenericLegacyTarget(slug: string): string | undefined {
+  const isForeignGeoTemplate =
+    /^barberias-cortes-fade-y-cuidado-de-barba-en-/.test(slug) ||
+    /^barberias-estilo-de-barba-y-minoxidil-en-/.test(slug) ||
+    /^minoxidil-y-barberias-en-/.test(slug);
+  if (isForeignGeoTemplate) return undefined;
+
+  if (/cejas/.test(slug)) return "/blog/minoxidil-en-cejas-como-aplicar-sin-irritar-ojos/";
+  if (/caspa|reseq|irritaci|piel-sensible/.test(slug)) {
+    return "/blog/que-hacer-si-tienes-resequedad-o-caspa-por-minoxidil/";
+  }
+  if (/peligro|riesgo|contraindic|precaucion|mascota|seguridad|falso|adulterado|informal/.test(slug)) {
+    return "/blog/errores-comunes-al-usar-minoxidil-para-barba/";
+  }
+  if (/resultados|meses|permanente/.test(slug)) {
+    return "/blog/cuanto-tiempo-usar-minoxidil-para-barba-permanente/";
+  }
+  if (/minox|rogaine|kirkland|foligain|keeps|hims|lipogaine|equate|goodsense|walgreens|roman|amazon|digemid|crema|espuma|liquido|serum|balsamo/.test(slug)) {
+    return "/blog/minoxidil-en-crema-vs-liquido-diferencias-barba/";
+  }
+  return undefined;
+}
+
 const LEGACY_SLUG_MAP = new Map<string, string>();
 for (const [dest, slugs] of Object.entries(LEGACY_REDIRECT_GROUPS)) {
   for (const slug of slugs) {
-    LEGACY_SLUG_MAP.set(slug, dest);
+    const target = dest === "/blog/" ? resolveGenericLegacyTarget(slug) : dest;
+    if (target) LEGACY_SLUG_MAP.set(slug, target);
   }
 }
 

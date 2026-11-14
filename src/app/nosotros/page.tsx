@@ -18,7 +18,7 @@ import {
 } from "@/lib/barberias";
 
 export const metadata: Metadata = {
-  title: `Quiénes Somos y Metodología del Ranking — by You Minox (${COMPANY_NAME})`,
+  title: "Quiénes Somos y Metodología del Ranking",
   description: `Conoce al equipo detrás de ${SITE_NAME}, iniciativa creada por You Minox (youminox.com) y ${COMPANY_NAME} (RUC: ${COMPANY_RUC}).`,
   alternates: { canonical: `${SITE_URL}/nosotros/` },
 };

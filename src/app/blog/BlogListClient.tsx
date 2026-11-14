@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   BLOG_CATEGORIES,
@@ -13,23 +12,22 @@ import { YOU_MINOX_URL } from "@/lib/barberias";
 
 const PAGE_SIZE = 24;
 
+/**
+ * Rendered on the server (no useSearchParams bailout) so the first grid of guides
+ * is present in the static HTML; the ?categoria= filter is applied after hydration.
+ */
 function BlogListInner({ articles }: { articles: BlogArticleSummary[] }) {
-  const searchParams = useSearchParams();
-  const initialCat = searchParams.get("categoria") || "all";
-  const [selectedCategory, setSelectedCategory] = useState<string>(initialCat);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
 
   useEffect(() => {
-    const cat = searchParams.get("categoria");
+    const cat = new URLSearchParams(window.location.search).get("categoria");
     if (cat && BLOG_CATEGORIES[cat as CategorySlug]) {
       setSelectedCategory(cat);
       setVisibleCount(PAGE_SIZE);
-    } else if (!cat) {
-      setSelectedCategory("all");
-      setVisibleCount(PAGE_SIZE);
     }
-  }, [searchParams]);
+  }, []);
 
   const filtered = articles.filter((article) => {
     const matchesCat =
@@ -173,6 +171,8 @@ function BlogListInner({ articles }: { articles: BlogArticleSummary[] }) {
                     <img
                       src={article.imageUrl}
                       alt={article.imageAlt}
+                      width={1200}
+                      height={675}
                       className="w-full h-52 object-cover transition duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
@@ -255,15 +255,5 @@ export default function BlogListClient({
 }: {
   articles: BlogArticleSummary[];
 }) {
-  return (
-    <Suspense
-      fallback={
-        <div className="py-16 text-center text-sm text-slate-500">
-          Cargando las 500 guías de barbería, visagismo y cuidado de barba...
-        </div>
-      }
-    >
-      <BlogListInner articles={articles} />
-    </Suspense>
-  );
+  return <BlogListInner articles={articles} />;
 }

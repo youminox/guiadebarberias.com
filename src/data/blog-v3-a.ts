@@ -97,7 +97,7 @@ export const BLOG_V3_CLUSTER_A: BlogV3ArticleSeed[] = [
     id: 7,
     slug: "numeros-de-maquina-corte-de-pelo",
     title: "Números de Máquina para Cortar el Pelo en Barbería: Tabla Exacta del #0 al #8 en Milímetros",
-    seoTitle: "Números de Máquina de Barbería: Tabla de Peines del #0 al #8 en mm",
+    seoTitle: "Números de Máquina de Barbería: Tabla del #0 al #8 en mm",
     focusKeyword: "numeros de maquina para cortar el pelo",
     excerpt:
       "Descubre qué largo exacto deja cada peine guía (#0, #0.5, #1, #1.5, #2, #3, #4 al #8), cómo influye la palanca abierta o cerrada y qué número pedir según tu estilo.",
@@ -760,7 +760,7 @@ export const BLOG_V3_CLUSTER_A: BlogV3ArticleSeed[] = [
     id: 15,
     slug: "primera-vez-barberia-premium-experiencia",
     title: "Primera Vez en una Barbería Premium: Qué Incluye el Servicio y Cuándo Vale la Pena Pagar Más",
-    seoTitle: "Primera Vez en una Barbería Premium: Qué Esperar y Si Vale la Pena",
+    seoTitle: "Barbería Premium por Primera Vez: Qué Esperar",
     focusKeyword: "primera vez en barberia premium que incluye",
     excerpt:
       "Qué diferencia realmente a una barbería de S/ 25 de una de S/ 70 o S/ 90: diagnóstico craneal, lavado, vapor de ozono, café, garantías y cuándo justifica el gasto.",

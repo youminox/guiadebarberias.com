@@ -8,7 +8,8 @@ import {
 import { getAllBlogArticles } from "@/data/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // Fixed content date (update when directory data changes) instead of build time, so <lastmod> stays trustworthy
+  const now = new Date("2026-11-14T00:00:00-05:00");
   const barberias = getAllBarberias();
   const cities = getAllCities();
   const blogArticles = getAllBlogArticles();
@@ -73,9 +74,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPages: MetadataRoute.Sitemap = blogArticles.map((a) => ({
     url: `${SITE_URL}/blog/${a.slug}/`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.88,
+    // Real per-article modification date so Google can trust <lastmod>
+    lastModified: new Date(`${a.updatedAt}T00:00:00-05:00`),
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
 
   const barberiaPages: MetadataRoute.Sitemap = barberias.map((b) => ({

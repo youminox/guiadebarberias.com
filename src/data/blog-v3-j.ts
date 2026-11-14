@@ -631,7 +631,7 @@ export const BLOG_V3_CLUSTER_J: BlogV3ArticleSeed[] = [
     id: 104,
     slug: "biotina-zinc-y-alimentacion-para-engrosar-barba",
     title: "Biotina, Zinc y Alimentación Para Engrosar La Barba y El Cabello: Qué Dice La Ciencia Real",
-    seoTitle: "Biotina, Zinc y Nutrición Para Barba y Cabello: Qué Sirve Realmente",
+    seoTitle: "Biotina, Zinc y Nutrición para la Barba: Qué Sirve",
     focusKeyword: "biotina zinc alimentacion para engrosar barba",
     excerpt:
       "Desmontamos mitos sobre pastillas mágicas para la barba: cuándo la biotina, el zinc, la proteína y el descanso sí engrosan el tallo de queratina desde adentro.",
@@ -710,7 +710,7 @@ export const BLOG_V3_CLUSTER_J: BlogV3ArticleSeed[] = [
     id: 105,
     slug: "cronograma-12-meses-crecimiento-barba-de-cero-a-cerrada",
     title: "Cronograma de 12 Meses Para Pasar De Lampiño a Barba Cerrada: Qué Esperar En Cada Trimestre",
-    seoTitle: "Cronograma de 12 Meses Para Lograr Barba Cerrada (Trimestre a Trimestre)",
+    seoTitle: "Cronograma de 12 Meses para Lograr una Barba Cerrada",
     focusKeyword: "cronograma 12 meses crecimiento barba de cero a cerrada",
     excerpt:
       "Expectativas realistas mes a mes desde el rostro limpio hasta una barba densa y pareja: hitos de vello velloso, puntos críticos de paciencia y cierre al año.",

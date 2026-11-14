@@ -35,11 +35,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: `Ciudad no encontrada | ${SITE_NAME}` };
   }
 
-  const title = `Las ${city.count} Mejores Barberías en ${city.name}, Perú: Ranking y Reseñas Google (${city.avgRating} ★)`;
+  const title = `Las ${city.count} Mejores Barberías en ${city.name} (${city.avgRating} ★)`;
   const canonicalUrl = `${SITE_URL}/ciudad/${city.slug}/`;
 
   return {
-    title,
+    // Layout template appends "| SITE_NAME"; drop it if the full title would exceed ~65 chars
+    title: title.length + ` | ${SITE_NAME}`.length <= 65 ? title : { absolute: title },
     description: city.description,
     alternates: { canonical: canonicalUrl },
     openGraph: {

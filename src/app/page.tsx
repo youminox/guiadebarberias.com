@@ -22,7 +22,7 @@ import {
 import { getAllBlogArticles, BLOG_CATEGORIES } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} — Ranking de las +110 Mejores Barberías del Perú por Ciudad (Lima, Arequipa, Trujillo, Cusco) | by You Minox`,
+  title: { absolute: `Mejores Barberías del Perú por Ciudad | ${SITE_NAME}` },
   description: SITE_DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/` },
 };

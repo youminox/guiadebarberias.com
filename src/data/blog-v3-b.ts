@@ -5,7 +5,7 @@ export const BLOG_V3_CLUSTER_B: BlogV3ArticleSeed[] = [
     id: 16,
     slug: "cortes-de-cabello-para-ocasiones-especiales",
     title: "Cortes de Cabello Masculinos Para Ocasiones Especiales: Timing Perfecto y Cómo No Improvisar",
-    seoTitle: "Cortes Para Ocasiones Especiales: Cuántos Días Antes Ir a Barbería",
+    seoTitle: "Corte para Ocasiones Especiales: Cuántos Días Antes Ir",
     focusKeyword: "cortes de cabello hombre ocasiones especiales",
     excerpt:
       "La regla de los 3 a 5 días previos que siguen estilistas y asesores de imagen para llegar a cualquier evento importante con el corte asentado y cero rojeces.",
@@ -634,7 +634,7 @@ export const BLOG_V3_CLUSTER_B: BlogV3ArticleSeed[] = [
     id: 24,
     slug: "cortes-adolescentes-modernos-clasicos",
     title: "Cortes Para Adolescentes y Jóvenes: Los 6 Estilos Más Pedidos Que Realmente Favorecen",
-    seoTitle: "Cortes de Pelo Para Adolescentes: Los 6 Más Pedidos y Cómo Cuidarlos",
+    seoTitle: "Cortes de Pelo para Adolescentes: Los 6 Más Pedidos",
     focusKeyword: "cortes de pelo para adolescentes hombre",
     excerpt:
       "Del Blowout Taper y el Textured Fringe al Mod Cut o Mid Fade: cuál funciona según el tipo de pelo y cómo evitar el peinado graso en la pubertad.",
@@ -715,7 +715,7 @@ export const BLOG_V3_CLUSTER_B: BlogV3ArticleSeed[] = [
     id: 25,
     slug: "preparacion-corte-navidad-ano-nuevo",
     title: "Cómo Preparar Tu Corte Para Navidad y Año Nuevo Sin Atraparte En Las Colas De Diciembre",
-    seoTitle: "Corte en Navidad y Año Nuevo: Cuándo Reservar Para No Esperar 3 Horas",
+    seoTitle: "Corte en Navidad y Año Nuevo: Cuándo Reservar Cita",
     focusKeyword: "corte de cabello navidad ano nuevo barberia",
     excerpt:
       "Estrategia práctica para el mes más saturado de las barberías en Perú: fechas inteligentes para agendar tu corte doble de fiestas, combos y mantenimiento hasta enero.",

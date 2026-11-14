@@ -41,10 +41,9 @@ const NEAR_ME_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title:
-    "Barberías Recomendadas Cerca de Mí en Perú — Distancia GPS, Precios y Reseñas Google",
+  title: "Barberías Cerca de Mí en Perú: Distancia y Reseñas",
   description:
-    "Encuentra en 1 clic las mejores barberías cerca de tu ubicación en Lima y todo el Perú. Ordena +110 barberías verificadas por distancia exacta (metros/km), calificación en Google (4.7★ a 5.0★), precios y cómo llegar.",
+    "Encuentra las mejores barberías cerca de ti en Lima y todo el Perú: +110 barberías verificadas ordenadas por distancia, calificación en Google y precios.",
   alternates: { canonical: CANONICAL_URL },
   openGraph: {
     title: `Barberías Recomendadas Cerca de Mí en Perú | ${SITE_NAME}`,

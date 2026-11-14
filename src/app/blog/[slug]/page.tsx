@@ -42,16 +42,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const canonicalUrl = `${SITE_URL}/blog/${article.slug}/`;
   const absoluteImageUrl = `${SITE_URL}${article.imageUrl}`;
+  const metaDescription = clampDescription(article.excerpt);
 
   return {
-    title: `${article.seoTitle} | ${SITE_NAME}`,
-    description: article.excerpt,
+    // The root layout template already appends "| SITE_NAME"; skip it when the title would exceed ~65 chars
+    title: buildSeoTitle(article.seoTitle),
+    description: metaDescription,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${article.title} | ${SITE_NAME}`,
-      description: article.excerpt,
+      title: article.seoTitle,
+      description: metaDescription,
       url: canonicalUrl,
       type: "article",
       locale: "es_PE",
@@ -62,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         {
           url: absoluteImageUrl,
           width: 1200,
-          height: 630,
+          height: 675,
           alt: article.imageAlt,
         },
       ],
@@ -70,10 +72,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: article.seoTitle,
-      description: article.excerpt,
+      description: metaDescription,
       images: [absoluteImageUrl],
     },
   };
+}
+
+const TITLE_SUFFIX_LENGTH = ` | ${SITE_NAME}`.length;
+const MAX_TITLE_LENGTH = 65;
+
+function buildSeoTitle(seoTitle: string): Metadata["title"] {
+  return seoTitle.length + TITLE_SUFFIX_LENGTH <= MAX_TITLE_LENGTH
+    ? seoTitle
+    : { absolute: seoTitle };
+}
+
+/** Keeps meta descriptions within ~160 chars, cutting at a word boundary. */
+function clampDescription(text: string, max = 160): string {
+  const clean = text.replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const cut = clean.slice(0, max - 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${cut.slice(0, lastSpace > 100 ? lastSpace : cut.length).replace(/[\s,;:.—-]+$/, "")}…`;
+}
+
+/** Only beard/minoxidil guides (and the founder's pillar guides) carry the You Minox promotion. */
+function showsProductPromo(article: BlogArticle): boolean {
+  return article.categorySlug === "barba-y-minoxidil" || isFounderAuthored(article);
+}
+
+function isFounderAuthored(article: BlogArticle): boolean {
+  return article.author.includes("Charlie");
 }
 
 /**
@@ -504,6 +533,8 @@ export default async function BlogArticlePage({ params }: Props) {
   const topBarberias = getTopNationalBarberias(5);
   const canonicalUrl = `${SITE_URL}/blog/${article.slug}/`;
   const absoluteImageUrl = `${SITE_URL}${article.imageUrl}`;
+  const productPromo = showsProductPromo(article);
+  const founderAuthored = isFounderAuthored(article);
 
   const breadcrumbItems = [
     { label: "Inicio", href: "/" },
@@ -524,21 +555,37 @@ export default async function BlogArticlePage({ params }: Props) {
           : [absoluteImageUrl],
         datePublished: article.publishedAt,
         dateModified: article.updatedAt,
-        author: {
-          "@type": "Person",
-          name: article.author,
-          jobTitle: article.authorRole,
-          url: "https://charlielingan.com/es",
-          sameAs: [
-            "https://charlielingan.com/es",
-            "https://charlielingan.com/es/emprendedor/como-cree-you-minox-minoxidil-en-crema-numero-1-del-peru",
-            YOU_MINOX_URL,
-          ],
-        },
+        inLanguage: "es-PE",
+        articleSection: article.category,
+        author: founderAuthored
+          ? {
+              "@type": "Person",
+              name: article.author,
+              jobTitle: article.authorRole,
+              url: "https://charlielingan.com/es",
+              sameAs: [
+                "https://charlielingan.com/es",
+                "https://charlielingan.com/es/emprendedor/como-cree-you-minox-minoxidil-en-crema-numero-1-del-peru",
+                YOU_MINOX_URL,
+              ],
+            }
+          : {
+              "@type": "Organization",
+              "@id": `${SITE_URL}/#organization`,
+              name: SITE_NAME,
+              url: `${SITE_URL}/nosotros/`,
+            },
         publisher: {
           "@type": "Organization",
-          name: COMPANY_NAME,
-          url: SITE_URL,
+          "@id": `${SITE_URL}/#organization`,
+          name: SITE_NAME,
+          url: `${SITE_URL}/`,
+          logo: {
+            "@type": "ImageObject",
+            url: `${SITE_URL}/images/brand/logo-guiadebarberias.png`,
+            width: 512,
+            height: 512,
+          },
         },
         mainEntityOfPage: {
           "@type": "WebPage",
@@ -597,14 +644,16 @@ export default async function BlogArticlePage({ params }: Props) {
                 <span className="text-xs font-medium text-gray-400">
                   📅 Actualizado: {article.updatedAt}
                 </span>
-                <a
-                  href={YOU_MINOX_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1 rounded-full transition"
-                >
-                  ✓ Respaldado por You Minox (youminox.com)
-                </a>
+                {productPromo && (
+                  <a
+                    href={YOU_MINOX_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1 rounded-full transition"
+                  >
+                    ✓ Respaldado por You Minox (youminox.com)
+                  </a>
+                )}
               </div>
 
               <h1 className="text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl border-b border-slate-200 pb-6">
@@ -616,18 +665,24 @@ export default async function BlogArticlePage({ params }: Props) {
                 <img
                   src={article.imageUrl}
                   alt={article.imageAlt}
-                  className="w-full max-h-[420px] object-cover"
+                  width={1200}
+                  height={675}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-auto max-h-[420px] object-cover"
                 />
                 <div className="bg-slate-950 text-slate-200 px-4 py-2.5 text-xs flex flex-wrap items-center justify-between gap-2">
                   <span>📸 {article.imageAlt}</span>
-                  <a
-                    href={YOU_MINOX_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-400 font-bold hover:underline"
-                  >
-                    YouMinox.com ↗
-                  </a>
+                  {productPromo && (
+                    <a
+                      href={YOU_MINOX_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 font-bold hover:underline"
+                    >
+                      YouMinox.com ↗
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -691,9 +746,11 @@ export default async function BlogArticlePage({ params }: Props) {
                 </div>
               )}
 
-              <div className="my-10">
-                <YouMinoxSpotlight variant="article" />
-              </div>
+              {productPromo && (
+                <div className="my-10">
+                  <YouMinoxSpotlight variant="article" />
+                </div>
+              )}
 
               {/* FAQ Section */}
               <section id="preguntas-frecuentes" className="mt-12 pt-8 border-t border-slate-200">
@@ -718,10 +775,14 @@ export default async function BlogArticlePage({ params }: Props) {
               </section>
 
               {/* E-E-A-T Author Box */}
+              {founderAuthored ? (
               <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-900 text-white p-6 flex flex-col sm:flex-row items-center gap-5">
                 <img
                   src="/images/brand/charlie-lingan.webp"
                   alt={article.author}
+                  width={80}
+                  height={80}
+                  loading="lazy"
                   className="h-20 w-20 rounded-full object-cover border-2 border-emerald-400 shrink-0"
                 />
                 <div>
@@ -762,6 +823,39 @@ export default async function BlogArticlePage({ params }: Props) {
                   </p>
                 </div>
               </div>
+              ) : (
+              <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-900 text-white p-6 flex flex-col sm:flex-row items-center gap-5">
+                <img
+                  src="/images/brand/logo-guiadebarberias.png"
+                  alt={`Logo de ${SITE_NAME}`}
+                  width={80}
+                  height={80}
+                  loading="lazy"
+                  className="h-20 w-20 rounded-2xl object-cover shrink-0"
+                />
+                <div>
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
+                    Equipo Editorial
+                  </span>
+                  <h3 className="text-lg font-extrabold text-white mt-0.5">
+                    {article.author} — {article.authorRole}
+                  </h3>
+                  <p className="mt-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Guía elaborada por el equipo editorial de{" "}
+                    <strong>{SITE_NAME}</strong>, sitio de {COMPANY_NAME} (empresa
+                    detrás de la marca You Minox). Revisamos y actualizamos cada guía
+                    con criterios de barbería profesional.{" "}
+                    <Link
+                      href="/nosotros/"
+                      className="text-emerald-400 font-bold underline"
+                    >
+                      Conoce quiénes somos y nuestra metodología
+                    </Link>
+                    .
+                  </p>
+                </div>
+              </div>
+              )}
 
               {/* Related Articles */}
               <section className="mt-12 pt-8 border-t border-slate-200">
@@ -795,7 +889,7 @@ export default async function BlogArticlePage({ params }: Props) {
             {/* ================= STICKY SIDEBAR ================= */}
             <aside className="mt-12 lg:mt-0 lg:w-80 xl:w-96 shrink-0">
               <div className="sticky top-24 space-y-6">
-                <YouMinoxSpotlight variant="sidebar" />
+                {productPromo && <YouMinoxSpotlight variant="sidebar" />}
 
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
                   <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">

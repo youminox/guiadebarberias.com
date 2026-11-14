@@ -159,7 +159,7 @@ export const BLOG_V3_CLUSTER_I: BlogV3ArticleSeed[] = [
     id: 88,
     slug: "jabon-de-afeitar-vs-crema-tradicional-como-espumar",
     title: "Jabón de Afeitar vs. Crema de Afeitar vs. Espuma de Lata: Cómo Lograr Espuma Densa y Protectora",
-    seoTitle: "Jabón vs. Crema de Afeitar: Cómo Espumar Correctamente Sin Burbujas",
+    seoTitle: "Jabón vs. Crema de Afeitar: Cómo Espumar Correctamente",
     focusKeyword: "jabon de afeitar vs crema tradicional como espumar",
     excerpt:
       "Por qué la espuma instantánea de aerosol reseca la cara con gases propelentes y cómo batir en 45 segundos una crema protectora tipo yogur con jabón artesanal o crema en tubo.",
@@ -546,7 +546,7 @@ export const BLOG_V3_CLUSTER_I: BlogV3ArticleSeed[] = [
     id: 93,
     slug: "aftershave-locion-alcohol-vs-balsamo-calmante",
     title: "Aftershave: Loción Alcohólica Clásica vs. Bálsamo Calmante Sin Alcohol (Cuál Conviene Hoy)",
-    seoTitle: "Aftershave Loción vs. Bálsamo Sin Alcohol: Cuál Elegir Tras Afeitar",
+    seoTitle: "Aftershave: Loción con Alcohol vs. Bálsamo, Cuál Elegir",
     focusKeyword: "aftershave locion alcohol vs balsamo calmante",
     excerpt:
       "Cuándo aporta frescor una loción astringente tradicional de barbería, por qué resecan la piel en invierno y qué ingredientes buscar en un buen bálsamo post-afeitado.",
@@ -622,7 +622,7 @@ export const BLOG_V3_CLUSTER_I: BlogV3ArticleSeed[] = [
     id: 94,
     slug: "prevencion-vellos-encarnados-e-irritacion-cuello-afeitado",
     title: "Vellos Encarnados e Irritación en el Cuello al Afeitarse: Cómo Eliminar Los Granitos Rojos",
-    seoTitle: "Cómo Evitar Vellos Encarnados e Irritación en El Cuello al Afeitar",
+    seoTitle: "Cómo Evitar Vellos Encarnados e Irritación al Afeitar",
     focusKeyword: "prevencion vellos encarnados e irritacion cuello afeitado",
     excerpt:
       "Por qué justo debajo de la mandíbula salen esos granitos molestos en casi todos los hombres y las 5 correcciones simples de dirección, cuchilla y exfoliación que los eliminan.",

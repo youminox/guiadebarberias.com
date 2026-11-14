@@ -707,7 +707,7 @@ export const BLOG_V3_CLUSTER_D: BlogV3ArticleSeed[] = [
     id: 45,
     slug: "tatuaje-capilar-o-fibra-densa-para-entradas",
     title: "Fibras Capilares y Sombreado Cosmético en Barbería: Trucos Reales Para Eventos y Sus Límites",
-    seoTitle: "Fibras Capilares y Sombreado en Barbería: Cómo Funcionan y Cuándo Usarlos",
+    seoTitle: "Fibras Capilares y Micropigmentación: Cuándo Usarlas",
     focusKeyword: "fibras capilares y sombreado estetico entradas barberia",
     excerpt:
       "Cuándo aportan un plus estético las fibras de queratina o el aerógrafo en barba y entradas para una sesión de fotos, y cómo evitar el acabado artificial pintado.",

@@ -82,7 +82,7 @@ export const BLOG_V3_CLUSTER_E: BlogV3ArticleSeed[] = [
     id: 47,
     slug: "patillera-detailer-vs-trimmer-diferencias",
     title: "Patillera, Detailer y Trimmer: Para Qué Sirve Cada Una y Cuál Necesitas Según Tu Barba",
-    seoTitle: "Patillera vs. Detailer vs. Trimmer: Diferencias Reales en Barbería",
+    seoTitle: "Patillera vs. Detailer vs. Trimmer: Diferencias Reales",
     focusKeyword: "patillera detailer vs trimmer diferencias",
     excerpt:
       "Aclaramos la confusión de nombres entre máquina cortapelos (clipper), trimmer de acabados y detailer T-blade al ras para perfilar pómulos, nuca y patillas.",
@@ -159,7 +159,7 @@ export const BLOG_V3_CLUSTER_E: BlogV3ArticleSeed[] = [
     id: 48,
     slug: "afeitadora-foil-shaver-vs-cuchilla-rotativa",
     title: "Foil Shaver vs. Afeitadora Rotativa: Cuál Apura Al Cero Sin Irritar El Cuello Ni Dejar Granitos",
-    seoTitle: "Foil Shaver vs. Afeitadora Rotativa: Cuál Elegir Para Barba o Fade",
+    seoTitle: "Foil Shaver vs. Afeitadora Rotativa: Cuál Elegir",
     focusKeyword: "afeitadora foil shaver vs cuchilla rotativa",
     excerpt:
       "Explicamos cuándo gana la afeitadora de láminas metálicas (foil shaver) que usan los barberos en los fades y cuándo conviene una rotativa de tres cabezales.",

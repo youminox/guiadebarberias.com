@@ -160,7 +160,7 @@ export const BLOG_V3_CLUSTER_C: BlogV3ArticleSeed[] = [
     id: 28,
     slug: "trenzas-para-hombre-mantenimiento-barberia",
     title: "Trenzas Para Hombre en Barbería: Cornrows, Box Braids, Duración y Cómo Evitar Tensión Folicular",
-    seoTitle: "Trenzas Para Hombre: Tipos, Mantenimiento y Cuidado del Cuero Cabelludo",
+    seoTitle: "Trenzas para Hombre: Tipos, Mantenimiento y Cuidado",
     focusKeyword: "trenzas para hombre mantenimiento barberia",
     excerpt:
       "Largo mínimo requerido, estilos populares (cornrows rectos, zig-zag, box braids con fade), limpieza mientras las llevas puestas y cómo cuidar la línea frontal.",
@@ -711,7 +711,7 @@ export const BLOG_V3_CLUSTER_C: BlogV3ArticleSeed[] = [
     id: 35,
     slug: "como-dejarse-crecer-el-pelo-hombre-sin-desorden",
     title: "Cómo Dejarse Crecer el Pelo Si Eres Hombre: Cómo Sobrevivir la 'Etapa Rara' Sin Verte Desaliñado",
-    seoTitle: "Cómo Dejarse Crecer el Pelo Hombre Sin Pasar Vergüenza (Guía Mes a Mes)",
+    seoTitle: "Cómo Dejarse Crecer el Pelo (Hombre): Guía Mes a Mes",
     focusKeyword: "como dejarse crecer el pelo hombre sin desorden",
     excerpt:
       "El mapa real de 12 meses para pasar de corte corto a melena o largo medio ordenado: cortes de mantenimiento cada 6 semanas, nuca limpia y productos de transición.",

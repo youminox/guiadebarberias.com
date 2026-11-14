@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import YouMinoxSpotlight from "@/components/YouMinoxSpotlight";
 import AdBanner from "@/components/AdBanner";
 import BlogListClient from "./BlogListClient";
-import { getAllBlogArticleSummaries } from "@/data/blog-posts";
+import { getAllBlogArticleSummaries, BLOG_CATEGORIES, type CategorySlug } from "@/data/blog-posts";
 import {
   SITE_NAME,
   SITE_URL,
@@ -15,9 +15,9 @@ import {
 } from "@/lib/barberias";
 
 export const metadata: Metadata = {
-  title: `105 Guías de Barbería, Cortes Masculinos y Cuidado de Barba | ${SITE_NAME}`,
+  title: "Blog de Barbería: Cortes, Fades y Barba",
   description:
-    "Explora nuestras 105 guías especializadas de cortes por tipo de rostro y cabello, fades, afeitado clásico, herramientas de barbería, negocio y cuidado de barba con You Minox.",
+    "105 guías de barbería: cortes según tu rostro y tipo de cabello, fades, afeitado clásico, herramientas, negocio de barbería y cuidado de barba.",
   alternates: {
     canonical: `${SITE_URL}/blog/`,
   },
@@ -106,8 +106,46 @@ export default function BlogIndexPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12">
           <AdBanner className="mb-10" />
 
-          {/* Interactive 500-Article Explorer */}
+          {/* Interactive Article Explorer */}
           <BlogListClient articles={articles} />
+
+          {/* Full crawlable index of every guide, grouped by category */}
+          <section
+            aria-labelledby="indice-guias"
+            className="mt-14 rounded-2xl border border-slate-200 bg-white p-8"
+          >
+            <h2
+              id="indice-guias"
+              className="text-xl sm:text-2xl font-extrabold text-slate-900"
+            >
+              Índice completo de guías por categoría
+            </h2>
+            <div className="mt-6 grid gap-8 md:grid-cols-2">
+              {(Object.keys(BLOG_CATEGORIES) as CategorySlug[]).map((slug) => {
+                const inCat = articles.filter((a) => a.categorySlug === slug);
+                if (inCat.length === 0) return null;
+                return (
+                  <div key={slug}>
+                    <h3 className="text-sm font-extrabold uppercase tracking-wider text-primary">
+                      {BLOG_CATEGORIES[slug]} ({inCat.length})
+                    </h3>
+                    <ul className="mt-3 space-y-1.5 text-sm">
+                      {inCat.map((a) => (
+                        <li key={a.id}>
+                          <Link
+                            href={`/blog/${a.slug}/`}
+                            className="text-slate-700 hover:text-primary hover:underline"
+                          >
+                            {a.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
 
           <div className="my-14">
             <YouMinoxSpotlight variant="home" />

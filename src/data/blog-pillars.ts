@@ -5,7 +5,7 @@ export const PILLAR_ARTICLES = [
     id: 1,
     slug: "cuando-perfilar-barba-en-barberia-usando-minoxidil",
     title: "Cuándo Hacer tu Primer Perfilado en la Barbería si Estás Usando Minoxidil para la Barba",
-    seoTitle: "Cuándo Perfilar tu Barba en la Barbería Usando Minoxidil (Guía Mes a Mes)",
+    seoTitle: "Cuándo Perfilar la Barba si Usas Minoxidil (Mes a Mes)",
     excerpt:
       "Descubre en qué semana exacta de tu tratamiento con Minoxidil puedes acudir a la barbería para tu primer perfilado con navaja o máquina sin afectar el vello velloso en transición a terminal.",
     category: "Barba & Minoxidil",
@@ -105,7 +105,7 @@ export const PILLAR_ARTICLES = [
     id: 2,
     slug: "como-pedir-diseno-de-barba-al-barbero-si-tienes-huecos",
     title: "Cómo Pedirle al Barbero un Diseño de Barba si Tienes Huecos o Zonas Despobladas",
-    seoTitle: "Cómo Pedir un Diseño de Barba en la Barbería si Tienes Huecos o Parches",
+    seoTitle: "Cómo Pedir un Diseño de Barba si Tienes Huecos",
     excerpt:
       "Aprende las técnicas de visagismo, longitudes estratégicas y estilos de barba que los mejores barberos del Perú utilizan para disimular huecos en las mejillas mientras los rellenas con Minoxidil.",
     category: "Visagismo & Estilo",
@@ -193,7 +193,7 @@ export const PILLAR_ARTICLES = [
     id: 3,
     slug: "ritual-toalla-caliente-y-navaja-afecta-absorcion-minoxidil",
     title: "Ritual de Toalla Caliente y Navaja en Barbería: ¿Afecta la Absorción del Minoxidil?",
-    seoTitle: "Ritual de Toalla Caliente y Navaja en Barbería: ¿Mejora o Afecta el Minoxidil?",
+    seoTitle: "Toalla Caliente y Navaja: ¿Afectan al Minoxidil?",
     excerpt:
       "Analizamos científicamente qué ocurre en los poros y folículos faciales durante el ritual clásico de toalla caliente con vapor de ozono y navaja, y cómo aprovecharlo a favor de tu barba.",
     category: "Ciencia & Ritual",
@@ -280,7 +280,7 @@ export const PILLAR_ARTICLES = [
     id: 4,
     slug: "cortes-de-cabello-para-disimular-entradas-y-coronilla",
     title: "Cortes de Cabello que Disimulan las Entradas y la Coronilla: Guía de Visagismo Masculino",
-    seoTitle: "7 Mejores Cortes de Cabello para Disimular Entradas y Coronilla en Hombres",
+    seoTitle: "7 Cortes para Disimular Entradas y Coronilla (Hombre)",
     excerpt:
       "Conoce los cortes masculinos más efectivos (French Crop, Textured Quiff, Buzz Cut Fade y Caesar Cut) para disimular las entradas capilares mientras regeneras tus folículos con Minoxidil.",
     category: "Cortes & Capilar",
@@ -366,7 +366,7 @@ export const PILLAR_ARTICLES = [
     id: 5,
     slug: "cuidado-post-barberia-rutina-para-mantener-degradado-y-barba",
     title: "Cuidado Post-Barbería en Casa: Rutina de 5 Minutos para Mantener el Degradado y la Barba Hidratada",
-    seoTitle: "Cuidado Post-Barbería en Casa: Rutina Diaria para Barba y Corte Degradado",
+    seoTitle: "Cuidado Post-Barbería: Rutina para Barba y Degradado",
     excerpt:
       "Cómo prolongar el acabado recién salido de la barbería durante 3 semanas: limpieza facial, cepillado direccionado, nutrición con Biotina y estimulación con You Minox en Crema.",
     category: "Rutinas & Cuidado",

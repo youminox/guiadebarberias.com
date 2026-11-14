@@ -86,7 +86,7 @@ export const BLOG_V3_CLUSTER_H: BlogV3ArticleSeed[] = [
     id: 77,
     slug: "requisitos-municipales-defensa-civil-barberia-lima",
     title: "Requisitos Municipales, Defensa Civil (ITSE) y Bioseguridad Para Tu Barbería en Lima y Perú",
-    seoTitle: "Licencia Municipal y Defensa Civil Para Barbería en Lima (Checklist)",
+    seoTitle: "Licencia Municipal y Defensa Civil para Barbería en Lima",
     focusKeyword: "requisitos municipales defensa civil barberia lima",
     excerpt:
       "Evita multas y clausuras temporales: lista práctica de trámites clave ante SUNAT, Municipalidad (Licencia + ITSE), extintores, señalética y manejo de cuchillas usadas.",
@@ -724,7 +724,7 @@ export const BLOG_V3_CLUSTER_H: BlogV3ArticleSeed[] = [
     id: 85,
     slug: "atencion-al-cliente-y-fidelizacion-en-barberia",
     title: "Atención al Cliente y Fidelización en Barbería: Por Qué Un Cliente Vuelve Durante Años",
-    seoTitle: "Fidelización en Barbería: Cómo Convertir Visitas en Clientes Fijos",
+    seoTitle: "Fidelización en Barbería: Cómo Lograr Clientes Fijos",
     focusKeyword: "atencion al cliente y fidelizacion en barberia",
     excerpt:
       "Cortar bien es apenas el punto de partida. Las cinco conductas concretas de trato, escucha, puntualidad y seguimiento que separan a las barberías siempre llenas del resto.",

@@ -85,7 +85,7 @@ export const BLOG_V3_CLUSTER_F: BlogV3ArticleSeed[] = [
     id: 57,
     slug: "arcilla-mate-matte-clay-cabello-fino-graso",
     title: "Arcilla Mate (Matte Clay): Por Qué Es El Fijador Favorito Para Cabello Fino, Graso y Sin Brillo",
-    seoTitle: "Arcilla Mate Para Cabello (Matte Clay): Usos, Ventajas y Aplicación",
+    seoTitle: "Arcilla Mate (Matte Clay) para Cabello: Usos y Aplicación",
     focusKeyword: "arcilla mate matte clay cabello hombre",
     excerpt:
       "Descubre cómo las arcillas naturales con caolín o bentonita absorben el exceso de grasa a mediodía, aportan cuerpo instantáneo y mantienen peinados flexibles todo el día.",
@@ -635,7 +635,7 @@ export const BLOG_V3_CLUSTER_F: BlogV3ArticleSeed[] = [
     id: 64,
     slug: "aceite-de-barba-jojoba-vs-argan-formula",
     title: "Aceite Para Barba: Jojoba vs. Argán vs. Almendras (Cómo Leer la Etiqueta y Cuántas Gotas Usar)",
-    seoTitle: "Aceite Para Barba: Jojoba vs. Argán y Dosis Exacta Sin Brillo Graso",
+    seoTitle: "Aceite para Barba: Jojoba vs. Argán y Dosis Exacta",
     focusKeyword: "aceite de barba jojoba vs argan formula",
     excerpt:
       "Por qué el aceite para barba en realidad cuida más la piel debajo que el pelo mismo, qué ingredientes evitan comedones en piel grasa y cuántas gotas usar según largo.",
