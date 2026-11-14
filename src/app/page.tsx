@@ -478,7 +478,7 @@ export default function HomePage() {
                   Consejos de Barberos Profesionales y Crecimiento de Barba
                 </h2>
                 <p className="text-sm text-slate-600 mt-1 max-w-2xl">
-                  Explora nuestras {blogArticles.length} guías especializadas en 12 categorías: distritos de Lima, ciudades del Perú, países del mundo, cuándo perfilar tu barba durante tu tratamiento con You Minox y qué corte pedir según tu rostro:
+                  Explora nuestras {blogArticles.length} guías especializadas en 10 categorías: fades y visagismo, cortes según tu tipo de cabello y ocasión, afeitado clásico, herramientas de barbería y cuidado de barba con You Minox:
                 </p>
               </div>
               <Link
@@ -489,7 +489,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* 12 Category Silos Quick Access */}
+            {/* 10 Category Silos Quick Access */}
             <div className="mb-8 flex flex-wrap gap-2">
               {Object.entries(BLOG_CATEGORIES).map(([slug, label]) => (
                 <Link

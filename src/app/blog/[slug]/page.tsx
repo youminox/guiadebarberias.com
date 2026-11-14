@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
+import { getLegacyBlogRedirect } from "@/data/blog-legacy-redirects";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -431,6 +432,10 @@ function VariantTopModule({ article }: { article: BlogArticle }) {
       );
     }
 
+    case "editorial": {
+      return null;
+    }
+
     default: {
       return (
         <div className="mt-8 rounded-2xl border border-teal-200 bg-gradient-to-br from-teal-50/70 via-white to-emerald-50/50 p-6 shadow-xs">
@@ -488,6 +493,10 @@ export default async function BlogArticlePage({ params }: Props) {
   const article = getBlogArticleBySlug(slug);
 
   if (!article) {
+    const legacyTarget = getLegacyBlogRedirect(slug);
+    if (legacyTarget) {
+      permanentRedirect(legacyTarget);
+    }
     notFound();
   }
 
@@ -498,7 +507,7 @@ export default async function BlogArticlePage({ params }: Props) {
 
   const breadcrumbItems = [
     { label: "Inicio", href: "/" },
-    { label: "500 Guías de Barbería & Barba", href: "/blog/" },
+    { label: "Guías de Barbería & Barba", href: "/blog/" },
     { label: article.title },
   ];
 
@@ -510,7 +519,9 @@ export default async function BlogArticlePage({ params }: Props) {
         "@id": `${canonicalUrl}#article`,
         headline: article.title,
         description: article.excerpt,
-        image: [absoluteImageUrl, `${SITE_URL}${article.secondaryImageUrl}`],
+        image: article.secondaryImageUrl
+          ? [absoluteImageUrl, `${SITE_URL}${article.secondaryImageUrl}`]
+          : [absoluteImageUrl],
         datePublished: article.publishedAt,
         dateModified: article.updatedAt,
         author: {
@@ -567,7 +578,7 @@ export default async function BlogArticlePage({ params }: Props) {
                   href="/blog/"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 transition hover:text-primary"
                 >
-                  ← Volver a las 500 Guías de Barbería y Barba
+                  ← Volver a todas las Guías de Barbería
                 </Link>
               </div>
 
@@ -669,14 +680,16 @@ export default async function BlogArticlePage({ params }: Props) {
               />
 
               {/* Secondary Image */}
-              <div className="my-8 overflow-hidden rounded-2xl border border-slate-200 shadow-xs">
-                <img
-                  src={article.secondaryImageUrl}
-                  alt={`Cuidado y perfilado de barba profesional — ${article.title}`}
-                  className="w-full max-h-[380px] object-cover"
-                  loading="lazy"
-                />
-              </div>
+              {article.secondaryImageUrl && (
+                <div className="my-8 overflow-hidden rounded-2xl border border-slate-200 shadow-xs">
+                  <img
+                    src={article.secondaryImageUrl}
+                    alt={`Cuidado y perfilado de barba profesional — ${article.title}`}
+                    className="w-full max-h-[380px] object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
 
               <div className="my-10">
                 <YouMinoxSpotlight variant="article" />

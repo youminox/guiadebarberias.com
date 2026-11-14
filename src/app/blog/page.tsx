@@ -15,16 +15,16 @@ import {
 } from "@/lib/barberias";
 
 export const metadata: Metadata = {
-  title: `1,500 Guías de Barbería, Diseño de Barba y Minoxidil | ${SITE_NAME}`,
+  title: `105 Guías de Barbería, Cortes Masculinos y Cuidado de Barba | ${SITE_NAME}`,
   description:
-    "Explora las 1,500 guías especializadas de visagismo masculino, barberías por urbanización y distrito en Lima y ciudades del Perú, cuándo perfilar tu barba usando You Minox en Crema-Gel y cuidado post-barbería.",
+    "Explora nuestras 105 guías especializadas de cortes por tipo de rostro y cabello, fades, afeitado clásico, herramientas de barbería, negocio y cuidado de barba con You Minox.",
   alternates: {
     canonical: `${SITE_URL}/blog/`,
   },
   openGraph: {
-    title: `1,500 Guías Oficiales de Barbería, Visagismo y Cuidado de Barba | ${SITE_NAME}`,
+    title: `Guías Oficiales de Barbería, Visagismo y Cuidado de Barba | ${SITE_NAME}`,
     description:
-      "Consejos de maestros barberos del Perú y especialistas en crecimiento folicular con You Minox en Crema-Gel.",
+      "Consejos de barberos profesionales del Perú sobre cortes masculinos, fades, afeitado clásico y crecimiento de barba.",
     url: `${SITE_URL}/blog/`,
     type: "website",
     locale: "es_PE",
@@ -39,9 +39,9 @@ export default function BlogIndexPage() {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: `Enciclopedia de 500 Guías de ${SITE_NAME}`,
+    name: `Enciclopedia Editorial de Barbería de ${SITE_NAME}`,
     description:
-      "500 guías clínicas y de barbería sobre diseño de barba, visagismo, cortes masculinos, barberías en Perú y aplicación de Minoxidil en Crema-Gel.",
+      "Guías especializadas sobre fades, visagismo, cortes según tipo de cabello, afeitado clásico, herramientas de barbería y cuidado de barba.",
     url: `${SITE_URL}/blog/`,
     publisher: {
       "@type": "Organization",
@@ -77,18 +77,18 @@ export default function BlogIndexPage() {
             <Breadcrumbs
               items={[
                 { label: "Inicio", href: "/" },
-                { label: "500 Guías de Barbería & Barba" },
+                { label: "Guías de Barbería & Barba" },
               ]}
             />
             <div className="mt-6 max-w-3xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/15 px-3.5 py-1 text-xs font-extrabold text-emerald-300 mb-4">
-                💈 {articles.length} Guías de Barberos & Especialistas en Barba • Impulsado por You Minox
+                💈 {articles.length} Guías de Barbería & Estilo Masculino • Impulsado por You Minox
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
                 Enciclopedia de Barbería, Visagismo y Crecimiento de Barba
               </h1>
               <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-                Explora nuestras <strong>{articles.length} guías especializadas</strong> en 12 categorías: distritos de Lima, ciudades del Perú, países del mundo, cuándo perfilar tu barba usando{" "}
+                Explora nuestras <strong>{articles.length} guías especializadas</strong> en 10 categorías: fades y visagismo, cortes según cabello y ocasión, afeitado clásico, herramientas de barbería y cuidado de barba con{" "}
                 <a
                   href={YOU_MINOX_URL}
                   target="_blank"

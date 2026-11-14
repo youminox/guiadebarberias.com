@@ -14,8 +14,7 @@ export const PILLAR_ARTICLES = [
     readTime: "8 min",
     author: "Charlie Lingán",
     authorRole: "Especialista en Cuidado Capilar & Fundador de You Minox",
-    imageUrl: "/images/barberias/barber-01.jpg",
-    secondaryImageUrl: "/images/barberias/barber-14.jpg",
+    imageUrl: "/images/blog-v3/cuando-perfilar-barba-en-barberia-usando-minoxidil.webp",
     imageAlt: "Barbero profesional realizando un perfilado de barba a un cliente en tratamiento con Minoxidil",
     keyTakeaways: [
       "Durante las primeras 6 a 8 semanas de uso de Minoxidil, evita el afeitado al ras con navaja en las zonas centrales donde están brotando los primeros vellos vellosos.",
@@ -115,8 +114,7 @@ export const PILLAR_ARTICLES = [
     readTime: "7 min",
     author: "Charlie Lingán",
     authorRole: "Especialista en Cuidado Capilar & Fundador de You Minox",
-    imageUrl: "/images/barberias/barber-05.jpg",
-    secondaryImageUrl: "/images/barberias/barber-18.jpg",
+    imageUrl: "/images/blog-v3/como-pedir-diseno-de-barba-al-barbero-si-tienes-huecos.webp",
     imageAlt: "Diseño estratégico de barba con degradado para disimular huecos en las mejillas",
     keyTakeaways: [
       "El degradado lateral de barba (Mid/Low Beard Fade) elimina el contraste visual en las mejillas con poca densidad y dirige la atención hacia el mentón y el bigote.",
@@ -204,8 +202,7 @@ export const PILLAR_ARTICLES = [
     readTime: "7 min",
     author: "Charlie Lingán",
     authorRole: "Especialista en Cuidado Capilar & Fundador de You Minox",
-    imageUrl: "/images/barberias/barber-08.jpg",
-    secondaryImageUrl: "/images/barberias/barber-21.jpg",
+    imageUrl: "/images/blog-v3/ritual-toalla-caliente-y-navaja-afecta-absorcion-minoxidil.webp",
     imageAlt: "Ritual tradicional de toalla caliente y afeitado con navaja en una barbería de lujo en Perú",
     keyTakeaways: [
       "El calor húmedo de la toalla caliente dilata los poros foliculares y ablanda el sebo oxidado, dejando la piel mucho más receptiva para absorber activos tópicos en los días siguientes.",
@@ -292,8 +289,7 @@ export const PILLAR_ARTICLES = [
     readTime: "8 min",
     author: "Charlie Lingán",
     authorRole: "Especialista en Cuidado Capilar & Fundador de You Minox",
-    imageUrl: "/images/barberias/barber-11.jpg",
-    secondaryImageUrl: "/images/barberias/barber-25.jpg",
+    imageUrl: "/images/blog-v3/cortes-de-cabello-para-disimular-entradas-y-coronilla.webp",
     imageAlt: "Corte masculino French Crop texturizado con fade en barbería para disimular entradas capilares",
     keyTakeaways: [
       "El secreto óptico para disimular entradas o baja densidad en la coronilla no es dejarse el pelo largo en los lados, sino rebajar los laterales (Fade) para que la parte superior luzca más tupida.",
@@ -379,8 +375,7 @@ export const PILLAR_ARTICLES = [
     readTime: "7 min",
     author: "Charlie Lingán",
     authorRole: "Especialista en Cuidado Capilar & Fundador de You Minox",
-    imageUrl: "/images/barberias/barber-19.jpg",
-    secondaryImageUrl: "/images/barberias/barber-27.jpg",
+    imageUrl: "/images/blog-v3/cuidado-post-barberia-rutina-para-mantener-degradado-y-barba.webp",
     imageAlt: "Hombre aplicando su rutina de cuidado facial y de barba en casa tras visitar la barbería",
     keyTakeaways: [
       "El 80% del aspecto y la densidad de tu barba se construye en los 20 días que transcurren entre una visita a la barbería y la siguiente.",
