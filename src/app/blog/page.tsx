@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_PE",
     siteName: SITE_NAME,
+    images: [
+      {
+        url: `${SITE_URL}/images/blog-v3/guia-visita-barberia.webp`,
+        width: 1200,
+        height: 675,
+        alt: "Guías de barbería, cortes masculinos y cuidado de barba",
+      },
+    ],
   },
 };
 

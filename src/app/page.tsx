@@ -20,10 +20,11 @@ import {
   YOU_MINOX_URL,
 } from "@/lib/barberias";
 import { getAllBlogArticles, BLOG_CATEGORIES } from "@/data/blog-posts";
+import { clampDescription } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: { absolute: `Mejores Barberías del Perú por Ciudad | ${SITE_NAME}` },
-  description: SITE_DESCRIPTION,
+  description: clampDescription(SITE_DESCRIPTION),
   alternates: { canonical: `${SITE_URL}/` },
 };
 

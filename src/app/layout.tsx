@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { clampDescription } from "@/lib/seo";
 import {
   SITE_NAME,
   SITE_URL,
@@ -26,13 +27,13 @@ export const metadata: Metadata = {
     default: `${SITE_NAME} — Ranking de las Mejores Barberías del Perú por Ciudad (Lima, Arequipa, Trujillo, Cusco) | by You Minox`,
     template: `%s | ${SITE_NAME}`,
   },
-  description: SITE_DESCRIPTION,
+  description: clampDescription(SITE_DESCRIPTION),
   alternates: {
     canonical: `${SITE_URL}/`,
   },
   openGraph: {
     title: `${SITE_NAME} — Las Mejores Barberías del Perú con Reseñas de Google | Creado por You Minox`,
-    description: SITE_DESCRIPTION,
+    description: clampDescription(SITE_DESCRIPTION),
     url: `${SITE_URL}/`,
     siteName: SITE_NAME,
     locale: "es_PE",
@@ -40,8 +41,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${SITE_URL}/images/barberias/barber-01.jpg`,
-        width: 1200,
-        height: 630,
+        width: 1179,
+        height: 1013,
         alt: `${SITE_NAME} — Ranking Oficial de Barberías del Perú by You Minox`,
       },
     ],
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — Ranking de las Mejores Barberías del Perú | by You Minox`,
-    description: SITE_DESCRIPTION,
+    description: clampDescription(SITE_DESCRIPTION),
     images: [`${SITE_URL}/images/barberias/barber-01.jpg`],
   },
   robots: {

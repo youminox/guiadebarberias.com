@@ -13,7 +13,7 @@ import {
 } from "@/lib/barberias";
 
 export const metadata: Metadata = {
-  title: `Contacto Oficial — ${COMPANY_NAME} (${COMPANY_EMAIL})`,
+  title: `Contacto — ${COMPANY_NAME}`,
   description: `Comunícate con el equipo de ${SITE_NAME} y ${COMPANY_NAME} (RUC: ${COMPANY_RUC}) al correo ${COMPANY_EMAIL}.`,
   alternates: { canonical: `${SITE_URL}/contacto/` },
 };

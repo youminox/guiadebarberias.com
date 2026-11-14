@@ -41,7 +41,7 @@ const NEAR_ME_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Barberías Cerca de Mí en Perú: Distancia y Reseñas",
+  title: "Barberías Cerca de Mí: Distancia y Reseñas",
   description:
     "Encuentra las mejores barberías cerca de ti en Lima y todo el Perú: +110 barberías verificadas ordenadas por distancia, calificación en Google y precios.",
   alternates: { canonical: CANONICAL_URL },
@@ -53,6 +53,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_PE",
     siteName: SITE_NAME,
+    images: [
+      {
+        url: `${SITE_URL}/images/barberias/barber-01.jpg`,
+        width: 1179,
+        height: 1013,
+        alt: "Barberías recomendadas cerca de ti en Perú",
+      },
+    ],
   },
 };
 

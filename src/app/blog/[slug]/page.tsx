@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { getLegacyBlogRedirect } from "@/data/blog-legacy-redirects";
+import { clampDescription, fitTitle } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     // The root layout template already appends "| SITE_NAME"; skip it when the title would exceed ~65 chars
-    title: buildSeoTitle(article.seoTitle),
+    title: fitTitle(article.seoTitle),
     description: metaDescription,
     alternates: {
       canonical: canonicalUrl,
@@ -76,24 +77,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [absoluteImageUrl],
     },
   };
-}
-
-const TITLE_SUFFIX_LENGTH = ` | ${SITE_NAME}`.length;
-const MAX_TITLE_LENGTH = 65;
-
-function buildSeoTitle(seoTitle: string): Metadata["title"] {
-  return seoTitle.length + TITLE_SUFFIX_LENGTH <= MAX_TITLE_LENGTH
-    ? seoTitle
-    : { absolute: seoTitle };
-}
-
-/** Keeps meta descriptions within ~160 chars, cutting at a word boundary. */
-function clampDescription(text: string, max = 160): string {
-  const clean = text.replace(/\s+/g, " ").trim();
-  if (clean.length <= max) return clean;
-  const cut = clean.slice(0, max - 1);
-  const lastSpace = cut.lastIndexOf(" ");
-  return `${cut.slice(0, lastSpace > 100 ? lastSpace : cut.length).replace(/[\s,;:.—-]+$/, "")}…`;
 }
 
 /** Only beard/minoxidil guides (and the founder's pillar guides) carry the You Minox promotion. */
@@ -535,6 +518,17 @@ export default async function BlogArticlePage({ params }: Props) {
   const absoluteImageUrl = `${SITE_URL}${article.imageUrl}`;
   const productPromo = showsProductPromo(article);
   const founderAuthored = isFounderAuthored(article);
+  const categorySiblings = getAllBlogArticles()
+    .filter((a) => a.categorySlug === article.categorySlug)
+    .sort((a, b) => a.id - b.id);
+  const siblingIdx = categorySiblings.findIndex((a) => a.slug === article.slug);
+  const categoryNav =
+    categorySiblings.length > 2
+      ? {
+          prev: categorySiblings[(siblingIdx - 1 + categorySiblings.length) % categorySiblings.length],
+          next: categorySiblings[(siblingIdx + 1) % categorySiblings.length],
+        }
+      : null;
 
   const breadcrumbItems = [
     { label: "Inicio", href: "/" },
@@ -855,6 +849,37 @@ export default async function BlogArticlePage({ params }: Props) {
                   </p>
                 </div>
               </div>
+              )}
+
+              {/* Previous / next guide in the same category (guarantees every guide gets in-cluster links) */}
+              {categoryNav && (
+                <nav
+                  aria-label="Más guías de esta categoría"
+                  className="mt-12 grid gap-4 sm:grid-cols-2"
+                >
+                  <Link
+                    href={`/blog/${categoryNav.prev.slug}/`}
+                    className="rounded-2xl border border-slate-200 p-4 hover:border-primary transition"
+                  >
+                    <span className="text-[11px] font-extrabold uppercase text-slate-500">
+                      ← Guía anterior en {article.category}
+                    </span>
+                    <span className="mt-1 block text-sm font-extrabold text-slate-900">
+                      {categoryNav.prev.title}
+                    </span>
+                  </Link>
+                  <Link
+                    href={`/blog/${categoryNav.next.slug}/`}
+                    className="rounded-2xl border border-slate-200 p-4 hover:border-primary transition sm:text-right"
+                  >
+                    <span className="text-[11px] font-extrabold uppercase text-slate-500">
+                      Siguiente guía en {article.category} →
+                    </span>
+                    <span className="mt-1 block text-sm font-extrabold text-slate-900">
+                      {categoryNav.next.title}
+                    </span>
+                  </Link>
+                </nav>
               )}
 
               {/* Related Articles */}

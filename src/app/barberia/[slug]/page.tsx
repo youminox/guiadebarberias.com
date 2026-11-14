@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { clampDescription, fitTitle } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
@@ -48,17 +49,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = fullTitle.length <= 65 ? fullTitle : `${barberia.name} (${ratingLabel})`;
   const canonicalUrl = `${SITE_URL}${getBarberiaUrl(barberia)}`;
   const absoluteImageUrl = `${SITE_URL}${barberia.imageUrl}`;
+  const metaDescription = clampDescription(barberia.excerpt);
 
   return {
     // Layout template appends "| SITE_NAME"; drop it if the full title would exceed ~65 chars
-    title: title.length + ` | ${SITE_NAME}`.length <= 65 ? title : { absolute: title },
-    description: barberia.excerpt,
+    title: fitTitle(title),
+    description: metaDescription,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
       title: `${title} | ${SITE_NAME}`,
-      description: barberia.excerpt,
+      description: metaDescription,
       url: canonicalUrl,
       type: "article",
       locale: "es_PE",
@@ -66,8 +68,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           url: absoluteImageUrl,
-          width: 1200,
-          height: 630,
           alt: `${barberia.name} en ${barberia.district}, ${barberia.city}`,
         },
       ],
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title,
-      description: barberia.excerpt,
+      description: metaDescription,
       images: [absoluteImageUrl],
     },
   };
@@ -310,7 +310,9 @@ export default async function BarberiaDetailPage({ params }: Props) {
                 <img
                   src={barberia.imageUrl}
                   alt={`${barberia.name} — Foto real de la barbería en ${barberia.district}, ${barberia.city}`}
-                  className="w-full max-h-[440px] object-cover"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full aspect-[16/9] max-h-[440px] object-cover"
                 />
                 <div className="bg-slate-950 text-slate-200 px-4 py-2.5 text-xs flex flex-wrap items-center justify-between gap-2">
                   <span>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { clampDescription, fitTitle } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -37,19 +38,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `Las ${city.count} Mejores Barberías en ${city.name} (${city.avgRating} ★)`;
   const canonicalUrl = `${SITE_URL}/ciudad/${city.slug}/`;
+  const metaDescription = clampDescription(city.description);
+  const ogImage = getBarberiasByCity(city.slug)[0]?.imageUrl;
 
   return {
     // Layout template appends "| SITE_NAME"; drop it if the full title would exceed ~65 chars
-    title: title.length + ` | ${SITE_NAME}`.length <= 65 ? title : { absolute: title },
-    description: city.description,
+    title: fitTitle(title),
+    description: metaDescription,
     alternates: { canonical: canonicalUrl },
     openGraph: {
       title: `${title} | ${SITE_NAME}`,
-      description: city.description,
+      description: metaDescription,
       url: canonicalUrl,
       type: "website",
       locale: "es_PE",
       siteName: SITE_NAME,
+      ...(ogImage ? { images: [{ url: `${SITE_URL}${ogImage}`, alt: `Barberías en ${city.name}` }] } : {}),
     },
   };
 }

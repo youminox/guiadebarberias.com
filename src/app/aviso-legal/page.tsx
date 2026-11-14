@@ -14,7 +14,7 @@ import {
 } from "@/lib/barberias";
 
 export const metadata: Metadata = {
-  title: `Aviso Legal y Términos de Uso — ${COMPANY_NAME}`,
+  title: "Aviso Legal y Términos de Uso",
   description: `Aviso Legal, datos societarios de ${COMPANY_NAME} (RUC: ${COMPANY_RUC}) y condiciones de uso de ${SITE_NAME}.`,
   alternates: { canonical: `${SITE_URL}/aviso-legal/` },
 };
