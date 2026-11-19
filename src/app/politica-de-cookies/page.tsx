@@ -96,6 +96,18 @@ export default function PoliticaCookiesPage() {
                     medición de eficacia publicitaria.
                   </td>
                 </tr>
+                <tr>
+                  <td>
+                    <strong>Almacenamiento local (Asesor IA)</strong>
+                  </td>
+                  <td>Chat de {SITE_NAME}</td>
+                  <td>
+                    Guarda en tu navegador (localStorage) un identificador anónimo
+                    y las últimas conversaciones del chat para que no se pierdan al
+                    cambiar de página. Puedes borrarlo con el botón «Reiniciar
+                    conversación» o limpiando los datos del sitio.
+                  </td>
+                </tr>
               </tbody>
             </table>
 

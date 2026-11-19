@@ -116,6 +116,17 @@ export default function PoliticaPrivacidadPage() {
                 analíticas (Google Analytics 4) y publicitarias (Google
                 AdSense).
               </li>
+              <li>
+                <strong>Conversaciones con el Asesor IA de barberías:</strong> Si
+                usas el chat, guardamos el texto de tus mensajes, las respuestas,
+                las barberías recomendadas y los clics en ellas, junto con un
+                identificador anónimo del navegador, para mejorar el servicio y
+                controlar su costo. Los mensajes se procesan con OpenAI para
+                generar las respuestas. Tu ubicación solo se usa si la activas
+                con el botón «Usar mi ubicación», para calcular la distancia en
+                esa conversación; no guardamos tu IP ni tu ubicación exacta. Te
+                recomendamos no escribir datos personales sensibles en el chat.
+              </li>
             </ul>
 
             <h2>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { clampDescription } from "@/lib/seo";
+import ChatWidgetLoader from "@/components/ChatWidgetLoader";
 import {
   SITE_NAME,
   SITE_URL,
@@ -150,6 +151,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-white text-slate-900 antialiased">
         {children}
+        <ChatWidgetLoader />
       </body>
     </html>
   );
