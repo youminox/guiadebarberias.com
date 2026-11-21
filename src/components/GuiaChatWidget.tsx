@@ -323,13 +323,13 @@ export default function GuiaChatWidget() {
                 <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-900" />
               </div>
               <div className="min-w-0">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-2">
                   <p className="font-extrabold text-[15px] leading-tight truncate">Asesor IA Barberías</p>
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300">
+                  <span className="inline-flex items-center whitespace-nowrap shrink-0 leading-none text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full bg-emerald-400/20 text-emerald-300">
                     En línea
                   </span>
                 </div>
-                <p className="text-xs text-slate-300 truncate">Precios referenciales · horarios · cerca de ti</p>
+                <p className="text-xs text-slate-300 truncate mt-0.5">Precios referenciales · horarios · cerca de ti</p>
               </div>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
