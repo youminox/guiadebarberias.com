@@ -150,6 +150,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/herramientas/"
+                  className="hover:text-emerald-400 transition-colors font-semibold text-amber-300"
+                >
+                  ✂️ Herramientas de Barbería (105 Análisis & VS)
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog/"
                   className="hover:text-emerald-400 transition-colors font-semibold text-white"
                 >

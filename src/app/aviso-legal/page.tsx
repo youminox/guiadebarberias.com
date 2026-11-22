@@ -92,7 +92,24 @@ export default function AvisoLegalPage() {
               <strong>{COMPANY_NAME}</strong>.
             </p>
 
-            <h2>4. Contacto para Rectificaciones o Consultas Legales</h2>
+            <h2>4. Participación en el Programa de Afiliados de Amazon</h2>
+            <p>
+              En la sección especializada{" "}
+              <code>https://guiadebarberias.com/herramientas/</code>,{" "}
+              <strong>{SITE_NAME}</strong> participa en el Programa de Afiliados
+              de Amazon Services LLC (ID de rastreo:{" "}
+              <code>guiadebarberias-20</code>) y en el Programa de Afiliados de
+              Amazon EU (ID de seguimiento: <code>guiadebarberias.com-21</code>
+              ), programas de publicidad para afiliados diseñados para ofrecer a
+              sitios web un modo de obtener comisiones por publicidad,
+              publicitando e incluyendo enlaces a <code>Amazon.com</code> y{" "}
+              <code>Amazon.es</code>. En calidad de Afiliado de Amazon,{" "}
+              <strong>{SITE_NAME}</strong> obtiene ingresos por las compras
+              adscritas que cumplen los requisitos aplicables, sin que ello
+              suponga ningún sobrecosto para el lector.
+            </p>
+
+            <h2>5. Contacto para Rectificaciones o Consultas Legales</h2>
             <p>
               Si eres propietario o representante de una barbería en el Perú y
               deseas actualizar la dirección, horario, precios o fotografías de

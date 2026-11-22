@@ -11,7 +11,7 @@ const MAIN_NAV = [
   { label: "Arequipa", href: "/ciudad/arequipa/" },
   { label: "Trujillo", href: "/ciudad/trujillo/" },
   { label: "Cusco", href: "/ciudad/cusco/" },
-  { label: "Asesor de Corte", href: "/#asesor-estilo" },
+  { label: "✂️ Herramientas", href: "/herramientas/" },
   { label: "Blog & Barba", href: "/blog/" },
 ];
 

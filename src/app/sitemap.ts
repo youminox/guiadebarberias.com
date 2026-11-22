@@ -6,13 +6,16 @@ import {
   SITE_URL,
 } from "@/lib/barberias";
 import { getAllBlogArticles } from "@/data/blog-posts";
+import { getAllHerramientasArticles } from "@/data/herramientas";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Fixed content date (update when directory data changes) instead of build time, so <lastmod> stays trustworthy
   const now = new Date("2026-11-14T00:00:00-05:00");
+  const herramientasNow = new Date("2026-11-22T00:00:00-05:00");
   const barberias = getAllBarberias();
   const cities = getAllCities();
   const blogArticles = getAllBlogArticles();
+  const herramientasArticles = getAllHerramientasArticles();
 
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -30,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/blog/`,
       lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/herramientas/`,
+      lastModified: herramientasNow,
       changeFrequency: "weekly",
       priority: 0.9,
     },
@@ -87,5 +96,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: b.isNationalTop ? 0.9 : 0.8,
   }));
 
-  return [...staticPages, ...cityPages, ...blogPages, ...barberiaPages];
+  const herramientasPages: MetadataRoute.Sitemap = herramientasArticles.map(
+    (h) => ({
+      url: `${SITE_URL}/herramientas/${h.slug}/`,
+      lastModified: new Date(`${h.updatedAt}T00:00:00-05:00`),
+      changeFrequency: "monthly",
+      priority: 0.75,
+    })
+  );
+
+  return [
+    ...staticPages,
+    ...cityPages,
+    ...blogPages,
+    ...herramientasPages,
+    ...barberiaPages,
+  ];
 }
