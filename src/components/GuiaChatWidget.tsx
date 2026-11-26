@@ -20,7 +20,6 @@ export interface ChatBarberiaCard {
   city: string;
   district: string;
   address: string | null;
-  rating: number | null;
   reviewCount: number | null;
   cutPrice: number | null;
   beardPrice: number | null;
@@ -403,39 +402,6 @@ export default function GuiaChatWidget() {
                       </div>
 
                       {msg.barberias && msg.barberias.length > 0 && (
-                        <div className="space-y-2">
-                          {msg.barberias.map((b) => (
-                            <div key={b.slug} className="rounded-2xl bg-white border border-slate-200 p-3 hover:border-emerald-500 transition-all">
-                              <div className="flex items-start gap-3">
-                                {b.imageUrl && (
-                                  <img
-                                    src={b.imageUrl}
-                                    alt={b.name}
-                                    width={64}
-                                    height={64}
-                                    className="w-16 h-16 rounded-xl object-cover shrink-0 bg-slate-100"
-                                    loading="lazy"
-                                  />
-                                )}
-                                <div className="min-w-0 flex-1">
-                                  <p className="font-extrabold text-sm text-slate-900 leading-snug line-clamp-2">{b.name}</p>
-                                  <p className="text-[11px] text-slate-500 truncate">
-                                    {b.district}, {b.city}
-                                    {b.distanceKm !== null ? ` · a ${b.distanceKm} km` : ""}
-                                  </p>
-                                  <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]">
-                                    {b.rating !== null && (
-                                      <span className="font-bold text-amber-600">
-                                        ★ {b.rating.toFixed(1)}
-                                        {b.reviewCount ? <span className="font-normal text-slate-400"> ({b.reviewCount})</span> : null}
-                                      </span>
-                                    )}
-                                    {b.cutPrice !== null && (
-                                      <span className="font-bold text-slate-800">
-                                        Corte S/ {b.cutPrice} <span className="font-normal text-slate-400">(referencial)</span>
-                                      </span>
-                                    )}
-                                  </div>
                                   <span
                                     className={`mt-1 inline-block rounded-full px-2 py-0.5 text-[10px] font-bold ${
                                       b.openStatus.status === "open"
